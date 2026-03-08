@@ -15,40 +15,25 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #f5f5f7;
-            color: #1d1d1d;
-            min-height: 100vh;
-            padding-bottom: 20px;
+            color: #000;
         }
 
-        .container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0;
-        }
-
-        /* Header - iPhone Style */
         header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e7;
+            padding: 12px 16px;
             position: sticky;
             top: 0;
             z-index: 50;
-            background: #fff;
-            border-bottom: 1px solid #e5e5e7;
-            padding: max(12px, env(safe-area-inset-top)) 16px 12px 16px;
-            margin-bottom: 0;
         }
 
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header-logo {
+        .header-top {
             display: flex;
             align-items: center;
             gap: 12px;
+            margin-bottom: 12px;
         }
 
         .logo-box {
@@ -68,7 +53,6 @@
             font-size: 17px;
             font-weight: 600;
             margin-bottom: 2px;
-            color: #000;
         }
 
         .header-title p {
@@ -76,7 +60,7 @@
             color: #86868b;
         }
 
-        .header-buttons {
+        .nav-buttons {
             display: flex;
             gap: 8px;
         }
@@ -84,28 +68,20 @@
         button {
             border: none;
             border-radius: 8px;
-            padding: 8px 14px;
+            padding: 8px 12px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
             font-size: 13px;
-            -webkit-appearance: none;
         }
 
-        .btn-tab {
+        .tab-btn {
             background: #f5f5f7;
             color: #000;
-            border: 1px solid #e5e5e7;
         }
 
-        .btn-tab:active {
-            background: #e5e5e7;
-        }
-
-        .btn-tab.active {
+        .tab-btn.active {
             background: #1e3a5f;
             color: #fff;
-            border: none;
         }
 
         .btn-primary {
@@ -120,211 +96,156 @@
         .btn-secondary {
             background: #f5f5f7;
             color: #000;
-            border: 1px solid #e5e5e7;
         }
 
-        .btn-secondary:active {
-            background: #e5e5e7;
+        .container {
+            max-width: 100%;
+            padding: 16px;
+            padding-bottom: 100px;
         }
 
-        .btn-danger {
-            background: transparent;
-            color: #ff3b30;
-            padding: 8px;
-            font-size: 16px;
-        }
-
-        .btn-danger:active {
-            background: rgba(255, 59, 48, 0.1);
-        }
-
-        /* Sections */
         .section {
             background: #fff;
-            border-top: 1px solid #e5e5e7;
-            border-bottom: 1px solid #e5e5e7;
-            padding: 20px 16px;
-            margin-bottom: 20px;
+            border: 1px solid #e5e5e7;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
         }
 
         .section h2 {
             font-size: 16px;
             font-weight: 600;
+            margin-bottom: 12px;
             color: #000;
-            margin-bottom: 16px;
         }
 
         .section h3 {
             font-size: 13px;
             font-weight: 600;
             color: #555;
-            margin-bottom: 12px;
-            margin-top: 16px;
+            margin: 12px 0 10px 0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        /* Forms */
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="number"] {
-            background: #f5f5f7;
+        input, textarea {
+            width: 100%;
+            padding: 10px;
             border: 1px solid #e5e5e7;
             border-radius: 8px;
-            padding: 12px 12px;
-            color: #000;
-            font-size: 16px;
-            width: 100%;
-            transition: all 0.2s;
-            -webkit-appearance: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-family: inherit;
         }
 
-        input[type="text"]::placeholder,
-        input[type="email"]::placeholder,
-        input[type="tel"]::placeholder {
-            color: #a1a1a6;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="tel"]:focus,
-        input[type="number"]:focus {
+        input:focus, textarea:focus {
             outline: none;
-            background: #fff;
-            border-color: #f97316;
+            border-color: #1e3a5f;
+            box-shadow: 0 0 0 2px rgba(30, 58, 95, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            height: 80px;
         }
 
         .grid {
             display: grid;
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
         }
 
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-        }
-
-        /* Item Cards */
-        .item-button {
-            text-align: left;
-            padding: 14px 12px;
+        .item-btn {
+            padding: 10px;
             background: #f5f5f7;
             border: 1px solid #e5e5e7;
             border-radius: 8px;
+            text-align: left;
             cursor: pointer;
-            transition: all 0.2s;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            -webkit-appearance: none;
         }
 
-        .item-button:active {
+        .item-btn:active {
             background: #e5e5e7;
-            border-color: #f97316;
         }
 
-        .item-button span:first-child {
-            font-size: 13px;
-            flex: 1;
-            color: #000;
-        }
-
-        .item-button span:last-child {
+        .item-btn span:last-child {
             color: #c75c3a;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
         }
 
-        /* Estimate Items */
         .estimate-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
             background: #f5f5f7;
-            padding: 14px 12px;
+            padding: 12px;
             border-radius: 8px;
-            border: 1px solid #e5e5e7;
             margin-bottom: 10px;
-            gap: 12px;
+            border: 1px solid #e5e5e7;
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
 
-        .estimate-item-info {
+        .estimate-info {
             flex: 1;
         }
 
-        .estimate-item-name {
+        .estimate-name {
             font-weight: 500;
-            color: #000;
-            margin-bottom: 2px;
             font-size: 14px;
         }
 
-        .estimate-item-type {
-            font-size: 12px;
-            color: #86868b;
-            text-transform: capitalize;
-        }
-
-        .qty-control {
+        .qty-box {
             display: flex;
+            gap: 8px;
             align-items: center;
-            gap: 10px;
             background: #fff;
-            padding: 6px 10px;
+            padding: 6px;
             border-radius: 6px;
             border: 1px solid #e5e5e7;
         }
 
-        .qty-control button {
+        .qty-box button {
+            padding: 4px 8px;
             background: none;
-            border: none;
             color: #c75c3a;
-            cursor: pointer;
             font-weight: bold;
-            padding: 0;
-            font-size: 18px;
         }
 
-        .qty-control input {
-            width: 30px;
+        .qty-box input {
+            width: 35px;
+            padding: 4px;
             text-align: center;
-            background: transparent;
             border: none;
-            color: #000;
-            padding: 0;
-            font-size: 14px;
+            margin: 0;
         }
 
-        .estimate-item-price {
+        .estimate-price {
             text-align: right;
             min-width: 80px;
         }
 
-        .estimate-item-total {
+        .price-total {
             font-weight: 600;
             color: #000;
-            font-size: 14px;
         }
 
-        .estimate-item-unit {
-            font-size: 12px;
-            color: #86868b;
+        .delete-btn {
+            background: none;
+            color: #ff3b30;
+            padding: 8px;
+            font-size: 16px;
         }
 
-        /* Summary */
         .summary {
             background: #fff;
             border: 1px solid #c75c3a;
             border-radius: 12px;
             padding: 16px;
-            margin: 0 16px 20px 16px;
             position: fixed;
-            bottom: max(20px, calc(env(safe-area-inset-bottom) + 20px));
+            bottom: 20px;
             left: 16px;
             right: 16px;
             z-index: 40;
@@ -338,9 +259,8 @@
         .summary-line {
             display: flex;
             justify-content: space-between;
-            color: #000;
-            margin-bottom: 8px;
             font-size: 13px;
+            margin-bottom: 8px;
         }
 
         .summary-total {
@@ -362,290 +282,214 @@
         }
 
         .summary-buttons button {
-            padding: 12px;
-            font-size: 13px;
+            padding: 10px;
+            font-size: 12px;
         }
 
-        /* Utility */
-        .space-y {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .hide {
+        .hidden {
             display: none;
         }
 
-        .show {
-            display: block;
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
         }
 
-        .text-center {
+        .modal-content {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 300px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .modal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .modal-option {
+            padding: 10px;
+            background: #f5f5f7;
+            border: 1px solid #e5e5e7;
+            border-radius: 6px;
+            cursor: pointer;
             text-align: center;
         }
 
-        .text-muted {
-            color: #86868b;
-            font-size: 13px;
-        }
-
-        .tip {
-            background: #f5f5f7;
-            border: 1px solid #c75c3a;
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 12px;
-            color: #000;
-            margin-top: 16px;
-            line-height: 1.5;
-        }
-
-        .tip strong {
-            color: #c75c3a;
+        .modal-option:active {
+            background: #e5e5e7;
         }
 
         footer {
-            border-top: 1px solid #e5e5e7;
-            margin-top: 48px;
-            padding: 24px 0 max(24px, env(safe-area-inset-bottom));
             text-align: center;
             font-size: 12px;
             color: #86868b;
-        }
-
-        .hidden-tab {
-            display: none;
-        }
-
-        .visible-tab {
-            display: block;
-        }
-
-        /* Estimate section spacing for fixed summary */
-        #estimate-tab .section:last-of-type {
-            margin-bottom: 400px;
+            padding: 20px;
+            border-top: 1px solid #e5e5e7;
         }
     </style>
 </head>
 <body>
-    <!-- Tonnage/Specs Modal -->
-    <div id="tonnageModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 100; align-items: center; justify-content: center;">
-        <div style="background: #fff; border-radius: 12px; padding: 24px; max-width: 350px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.2); max-height: 80vh; overflow-y: auto;">
-            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #000;" id="tonnageTitle">Select Unit Size</h3>
-            
-            <!-- Tonnage Options -->
-            <div id="tonnageOptions" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;"></div>
-            
-            <!-- SEER2 Options (for AC units) -->
-            <div id="seer2Section" style="display: none; margin-bottom: 20px;">
-                <h3 style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #000;">Select SEER2 Rating</h3>
-                <div id="seer2Options" style="display: flex; flex-direction: column; gap: 10px;"></div>
-            </div>
-
-            <!-- BTU Options (for furnace units) -->
-            <div id="btuSection" style="display: none; margin-bottom: 20px;">
-                <h3 style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #000;">Select BTU Output</h3>
-                <div id="btuOptions" style="display: flex; flex-direction: column; gap: 10px;"></div>
-            </div>
-            
-            <button class="btn-secondary" onclick="closeTonnageModal()" style="width: 100%; padding: 12px;">Cancel</button>
-        </div>
-    </div>
-
     <header>
-        <div class="container">
-            <div class="header-logo">
-                <div class="logo-box">ACE</div>
-                <div class="header-title">
-                    <h1>HVAC Estimator</h1>
-                    <p>ACE Heating & Air Conditioning</p>
-                </div>
+        <div class="header-top">
+            <div class="logo-box">ACE</div>
+            <div class="header-title">
+                <h1>HVAC Estimator</h1>
+                <p>ACE Heating & Air Conditioning</p>
             </div>
-            <div class="header-buttons">
-                <button class="btn-tab active" onclick="switchTab('estimate')">🏠 Estimate</button>
-                <button class="btn-tab" onclick="switchTab('calculator')">📐 Calculator</button>
-                <button class="btn-tab" onclick="switchTab('pricing')">⚙️ Pricing</button>
-            </div>
+        </div>
+        <div class="nav-buttons">
+            <button class="tab-btn active" onclick="goTab('estimate')">🏠 Estimate</button>
+            <button class="tab-btn" onclick="goTab('calculator')">📐 Calculator</button>
+            <button class="tab-btn" onclick="goTab('pricing')">⚙️ Pricing</button>
         </div>
     </header>
 
     <div class="container">
         <!-- ESTIMATE TAB -->
-        <div id="estimate-tab" class="visible-tab">
-            <!-- Customer Info -->
+        <div id="estimate" class="tab-content">
             <div class="section">
                 <h2>Customer Information</h2>
-                <div class="grid grid-2">
-                    <input type="text" id="clientName" placeholder="Customer Name">
-                    <input type="email" id="clientEmail" placeholder="Email Address">
-                    <input type="tel" id="clientPhone" placeholder="Phone Number">
-                </div>
-                
-                <h3 style="margin-top: 16px;">Notes</h3>
-                <textarea id="jobNotes" placeholder="e.g., Replace ductwork in attic, WiFi thermostat needed, etc." style="width: 100%; height: 80px; padding: 12px; border: 1px solid #e5e5e7; border-radius: 8px; font-size: 14px; font-family: inherit; background: #f5f5f7; color: #000; resize: vertical; -webkit-appearance: none;"></textarea>
+                <input type="text" id="name" placeholder="Customer Name">
+                <input type="email" id="email" placeholder="Email Address">
+                <input type="tel" id="phone" placeholder="Phone Number">
+                <textarea id="notes" placeholder="Job notes (optional)"></textarea>
             </div>
 
-            <!-- Equipment & Services -->
             <div class="section">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                    <h2 style="margin: 0;">Equipment & Services</h2>
-                    <div style="display: flex; gap: 8px;">
-                        <button class="btn-secondary" onclick="saveEstimate()" style="font-size: 12px; padding: 8px 12px;">💾 Save</button>
-                        <button class="btn-secondary" onclick="loadEstimate()" style="font-size: 12px; padding: 8px 12px;">📂 Load</button>
-                    </div>
+                <h2>Add Equipment</h2>
+                <h3>AC Units</h3>
+                <div class="grid">
+                    <button class="item-btn" onclick="pickAC('Standard AC Unit', 3200)">
+                        <span>Standard AC</span>
+                        <span>$3,200</span>
+                    </button>
+                    <button class="item-btn" onclick="pickAC('High-Eff AC', 5500)">
+                        <span>High-Eff AC</span>
+                        <span>$5,500</span>
+                    </button>
                 </div>
-
-                <div style="background: #f5f5f7; padding: 12px; border-radius: 8px; margin-bottom: 16px; border: 1px solid #e5e5e7;">
-                    <label style="font-size: 13px; font-weight: 600; color: #000;">Unit Number</label>
-                    <select id="unitNumber" onchange="switchUnit()" style="width: 100%; padding: 8px 12px; margin-top: 6px; border: 1px solid #e5e5e7; border-radius: 6px; background: #fff; font-size: 14px; -webkit-appearance: none;">
-                        <option value="1">Unit 1 (Main System)</option>
-                        <option value="2">Unit 2 (Secondary System)</option>
-                        <option value="3">Unit 3 (Additional System)</option>
-                    </select>
+                <h3>Furnaces</h3>
+                <div class="grid">
+                    <button class="item-btn" onclick="pickFurnace('Mid-Range Furnace', 4200)">
+                        <span>Mid-Range</span>
+                        <span>$4,200</span>
+                    </button>
+                    <button class="item-btn" onclick="pickFurnace('High-Eff Furnace', 5800)">
+                        <span>High-Eff</span>
+                        <span>$5,800</span>
+                    </button>
                 </div>
-                
-                <h3>Equipment</h3>
-                <div class="grid grid-3" id="equipmentGrid"></div>
-
                 <h3>Labor</h3>
-                <div class="grid grid-3" id="laborGrid"></div>
-            </div>
-
-            <!-- Estimate Items -->
-            <div class="section" style="margin-bottom: 400px;">
-                <h2>Estimate Items</h2>
-                <div id="estimateItems" style="min-height: 100px;">
-                    <p class="text-center text-muted">Add equipment or labor items above to build your estimate</p>
+                <div class="grid">
+                    <button class="item-btn" onclick="addItem('labor', 'Furnace Install', 1500)">
+                        <span>Furnace</span>
+                        <span>$1,500</span>
+                    </button>
+                    <button class="item-btn" onclick="addItem('labor', 'AC Install', 1200)">
+                        <span>AC</span>
+                        <span>$1,200</span>
+                    </button>
                 </div>
             </div>
 
-            <!-- Summary (Fixed) -->
-            <div id="summary" class="summary summary-hidden">
-                <div class="summary-line">
-                    <span>Equipment & Labor:</span>
-                    <span id="subtotalDisplay">$0.00</span>
-                </div>
-                <div class="summary-line">
-                    <span>Materials (<span id="materialsPercentDisplay">15</span>%):</span>
-                    <span id="materialsDisplay">$0.00</span>
-                </div>
-                <div class="summary-line">
-                    <span>Tax (<span id="taxPercentDisplay">0</span>%):</span>
-                    <span id="taxDisplay">$0.00</span>
-                </div>
-                <div class="summary-total">
-                    <span>Total Estimate:</span>
-                    <span id="totalDisplay">$0.00</span>
-                </div>
-                <div class="summary-buttons">
-                    <button class="btn-secondary" onclick="downloadEstimate()">📥 Download</button>
-                    <button class="btn-primary" onclick="sendEmail()">✉️ Email Estimate</button>
-                </div>
+            <div class="section">
+                <h2>Items</h2>
+                <div id="items"></div>
             </div>
         </div>
 
         <!-- CALCULATOR TAB -->
-        <div id="calculator-tab" class="hidden-tab">
+        <div id="calculator" class="tab-content hidden">
             <div class="section">
-                <h2>System Capacity Calculator</h2>
-                <p style="color: #86868b; font-size: 13px; margin-bottom: 16px;">Enter your home's square footage to find the recommended system size.</p>
+                <h2>Capacity Calculator</h2>
+                <input type="number" id="sqft" placeholder="Square Footage (e.g., 2000)">
                 
-                <div style="margin-bottom: 20px;">
-                    <label style="display: block; margin-bottom: 8px; font-size: 13px; font-weight: 600;">Square Footage</label>
-                    <input type="number" id="sqft" placeholder="e.g., 2000" style="font-size: 16px;">
-                </div>
-
-                <div style="margin-bottom: 20px;">
-                    <label style="display: block; margin-bottom: 8px; font-size: 13px; font-weight: 600;">System Type</label>
-                    <div class="grid" style="gap: 10px;">
-                        <button class="item-button" onclick="calculateCapacity('cooling')" style="background: #f5f5f7;">
-                            <span>❄️ Cooling (AC)</span>
-                        </button>
-                        <button class="item-button" onclick="calculateCapacity('heating')" style="background: #f5f5f7;">
-                            <span>🔥 Heating (Furnace)</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="calculator-results" class="hidden-tab">
-                <div class="section">
-                    <h3>📊 Calculation Results</h3>
-                    <div style="background: #f5f5f7; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
-                        <div style="margin-bottom: 12px;">
-                            <span style="font-size: 12px; color: #86868b;">Total BTU Required</span>
-                            <div style="font-size: 24px; font-weight: 600; color: #f97316;" id="btuResult">—</div>
-                        </div>
-                        <div>
-                            <span style="font-size: 12px; color: #86868b;">Recommended SEER2 / AFUE</span>
-                            <div style="font-size: 18px; font-weight: 600; color: #000;" id="seerResult">—</div>
-                        </div>
-                    </div>
-
-                    <div style="background: #fff3e0; padding: 12px; border-radius: 8px; border: 1px solid #ffe0b2; margin-bottom: 16px;">
-                        <p style="font-size: 12px; color: #000; line-height: 1.5;">
-                            <strong style="color: #f97316;">💡 Recommendation:</strong><br>
-                            <span id="recommendationText">—</span>
-                        </p>
-                    </div>
-
-                    <div style="background: #f5f5f7; padding: 12px; border-radius: 8px;">
-                        <p style="font-size: 12px; color: #86868b; line-height: 1.5; margin-bottom: 10px;">
-                            <strong>Calculation Method:</strong><br>
-                            Cooling: 25 BTU/sqft (Porterville climate)<br>
-                            Heating: 45 BTU/sqft (Porterville climate)
-                        </p>
-                    </div>
-
-                    <button class="btn-primary" onclick="addCalculatedUnit()" style="width: 100%; margin-top: 16px; padding: 14px;">
-                        ➕ Add to Estimate
+                <h3>Type</h3>
+                <div class="grid">
+                    <button class="item-btn" onclick="calcCooling()">
+                        <span>❄️ Cooling</span>
                     </button>
+                    <button class="item-btn" onclick="calcHeating()">
+                        <span>🔥 Heating</span>
+                    </button>
+                </div>
+
+                <div id="calcResult" class="hidden">
+                    <div style="background: #f5f5f7; padding: 12px; border-radius: 8px; margin-top: 12px;">
+                        <div style="font-size: 12px; color: #86868b; margin-bottom: 4px;">BTU Required</div>
+                        <div style="font-size: 24px; font-weight: 600; color: #c75c3a;" id="btuResult">—</div>
+                        <div style="font-size: 12px; color: #86868b; margin-top: 8px;" id="recResult"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="pricing-tab" class="hidden-tab">
-            <!-- Equipment Pricing -->
+
+        <!-- PRICING TAB -->
+        <div id="pricing" class="tab-content hidden">
             <div class="section">
                 <h2>Equipment Pricing</h2>
-                <div class="space-y" id="equipmentPricingList"></div>
+                <label>AC Unit: $<input type="number" id="pAC" value="3200" style="width: 80px; display: inline; margin: 0;"></label>
+                <label style="margin-top: 10px;">Furnace: $<input type="number" id="pFurnace" value="4200" style="width: 80px; display: inline; margin: 0;"></label>
             </div>
 
-            <!-- Labor Pricing -->
             <div class="section">
-                <h2>Labor Rates</h2>
-                <div class="space-y" id="laborPricingList"></div>
+                <h2>Settings</h2>
+                <label>Materials Markup: <input type="number" id="markup" value="15" style="width: 60px; display: inline; margin: 0;">%</label>
+                <label style="margin-top: 10px;">Tax Rate: <input type="number" id="tax" value="9.25" style="width: 60px; display: inline; margin: 0;">%</label>
             </div>
+        </div>
+    </div>
 
-            <!-- Materials Markup -->
-            <div class="section">
-                <h2>Materials & Markup</h2>
-                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(71, 85, 105, 0.2); padding: 16px; border-radius: 8px; border: 1px solid rgba(71, 85, 105, 0.3); margin-bottom: 16px;">
-                    <div>
-                        <p style="font-weight: 500; margin-bottom: 4px;">Materials Markup</p>
-                        <p class="text-muted">Applied to all estimates as a percentage</p>
-                    </div>
-                    <div style="display: flex; gap: 8px; align-items: center;">
-                        <input type="number" id="materialsPercent" value="15" style="width: 60px;">
-                        <span style="color: #94a3b8;">%</span>
-                    </div>
-                </div>
+    <!-- Summary -->
+    <div id="summary" class="summary summary-hidden">
+        <div class="summary-line">
+            <span>Equipment & Labor</span>
+            <span id="subtotal">$0.00</span>
+        </div>
+        <div class="summary-line">
+            <span>Materials</span>
+            <span id="materials">$0.00</span>
+        </div>
+        <div class="summary-line">
+            <span>Tax</span>
+            <span id="taxAmount">$0.00</span>
+        </div>
+        <div class="summary-total">
+            <span>Total</span>
+            <span id="total">$0.00</span>
+        </div>
+        <div class="summary-buttons">
+            <button class="btn-secondary" onclick="downloadEstimate()">📥 Download</button>
+            <button class="btn-primary" onclick="emailEstimate()">✉️ Email</button>
+        </div>
+    </div>
 
-                <h2 style="margin-top: 24px;">Tax Rate</h2>
-                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(71, 85, 105, 0.2); padding: 16px; border-radius: 8px; border: 1px solid rgba(71, 85, 105, 0.3);">
-                    <div>
-                        <p style="font-weight: 500; margin-bottom: 4px;">Sales Tax Rate</p>
-                        <p class="text-muted">Applied to subtotal + materials</p>
-                    </div>
-                    <div style="display: flex; gap: 8px; align-items: center;">
-                        <input type="number" id="taxRate" value="9.25" step="0.01" style="width: 60px;">
-                        <span style="color: #94a3b8;">%</span>
-                    </div>
-                </div>
-                <div class="tip">
-                    💡 <strong>Tip:</strong> Porterville rate is 9.25% (State 6% + County 0.25% + City 1.5% + Special 1.5%). Adjust for other locations as needed.
-                </div>
-            </div>
+    <!-- Modal for AC/Furnace specs -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title" id="modalTitle">Select Size</div>
+            <div id="modalOptions" class="modal-options"></div>
+            <button class="btn-secondary" style="width: 100%;" onclick="closeModal()">Cancel</button>
         </div>
     </div>
 
@@ -654,619 +498,222 @@
     </footer>
 
     <script>
-        // Default Data
-        const defaultEquipment = {
-            'Basic Furnace (80% AFUE)': 2800,
-            'Mid-Range Furnace (92% AFUE)': 4200,
-            'High-Efficiency Furnace (95% AFUE)': 5800,
-            'Ultra-Low NOx Furnace (SEER2 8+)': 7500,
-            'Standard AC Unit (SEER2 13)': 3200,
-            'High-Efficiency AC (SEER2 16+)': 5500,
-            'Rooftop Package Unit (SEER2 13, 80% AFUE)': 6500,
-            'Rooftop Package Unit (SEER2 16+, 92% AFUE)': 8500,
-            'A2L Refrigerant Charge': 800,
-            'Ductwork Modifications': 1500,
-        };
+        let items = [];
+        let currentType = '';
+        let currentName = '';
+        let currentPrice = 0;
 
-        const defaultLabor = {
-            'Furnace Replacement': 1500,
-            'AC Installation': 1200,
-            'Heat Pump System': 1800,
-            'Rooftop Package Unit Installation': 2200,
-            'Ductwork Work': 1000,
-            'Thermostat Installation': 300,
-            'System Tune-up': 250,
-            'Emergency Service': 500,
-        };
-
-        // State
-        let equipmentPrices = {...defaultEquipment};
-        let laborRates = {...defaultLabor};
-        let estimateItems = [];
-        let materialsPercent = 15;
-        let taxRate = 9.25;
-        let currentUnit = 1;
-        let unitsData = {
-            1: { items: [], clientName: '', clientEmail: '', clientPhone: '', jobNotes: '' },
-            2: { items: [], clientName: '', clientEmail: '', clientPhone: '', jobNotes: '' },
-            3: { items: [], clientName: '', clientEmail: '', clientPhone: '', jobNotes: '' }
-        };
-
-        // Initialize
-        function init() {
-            renderEquipmentGrid();
-            renderLaborGrid();
-            renderPricingLists();
-            document.getElementById('materialsPercent').addEventListener('change', (e) => {
-                materialsPercent = parseFloat(e.target.value) || 0;
-                updateSummary();
-                renderPricingLists();
-            });
-            document.getElementById('taxRate').addEventListener('change', (e) => {
-                taxRate = parseFloat(e.target.value) || 0;
-                updateSummary();
-            });
-        }
-
-        function switchTab(tabName) {
-            // Hide all tabs
-            document.getElementById('estimate-tab').classList.remove('visible-tab');
-            document.getElementById('estimate-tab').classList.add('hidden-tab');
-            document.getElementById('calculator-tab').classList.remove('visible-tab');
-            document.getElementById('calculator-tab').classList.add('hidden-tab');
-            document.getElementById('pricing-tab').classList.remove('visible-tab');
-            document.getElementById('pricing-tab').classList.add('hidden-tab');
-
-            // Show selected tab
-            if (tabName === 'estimate') {
-                document.getElementById('estimate-tab').classList.remove('hidden-tab');
-                document.getElementById('estimate-tab').classList.add('visible-tab');
-            } else if (tabName === 'calculator') {
-                document.getElementById('calculator-tab').classList.remove('hidden-tab');
-                document.getElementById('calculator-tab').classList.add('visible-tab');
-            } else {
-                document.getElementById('pricing-tab').classList.remove('hidden-tab');
-                document.getElementById('pricing-tab').classList.add('visible-tab');
-            }
-
-            // Update buttons
-            document.querySelectorAll('.btn-tab').forEach(btn => btn.classList.remove('active'));
+        function goTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tab).classList.remove('hidden');
+            
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
             event.target.classList.add('active');
         }
 
-        function renderEquipmentGrid() {
-            const grid = document.getElementById('equipmentGrid');
-            grid.innerHTML = Object.entries(equipmentPrices).map(([name, price]) => `
-                <button class="item-button" onclick="addItem('equipment', '${name.replace(/'/g, "\\'")}', ${price})">
-                    <span>${name}</span>
-                    <span>$${price}</span>
-                </button>
-            `).join('');
+        function pickAC(name, price) {
+            currentType = 'equipment';
+            currentName = name;
+            currentPrice = price;
+            showModal(['SEER2 13', 'SEER2 14', 'SEER2 15', 'SEER2 16', 'SEER2 17', 'SEER2 18'], 'ac');
         }
 
-        function renderLaborGrid() {
-            const grid = document.getElementById('laborGrid');
-            grid.innerHTML = Object.entries(laborRates).map(([name, price]) => `
-                <button class="item-button" onclick="addItem('labor', '${name.replace(/'/g, "\\'")}', ${price})">
-                    <span>${name}</span>
-                    <span>$${price}</span>
-                </button>
-            `).join('');
+        function pickFurnace(name, price) {
+            currentType = 'equipment';
+            currentName = name;
+            currentPrice = price;
+            showModal(['40K BTU', '50K BTU', '60K BTU', '75K BTU', '80K BTU', '100K BTU', '120K BTU'], 'furnace');
         }
 
-        function renderPricingLists() {
-            const equipmentList = document.getElementById('equipmentPricingList');
-            equipmentList.innerHTML = Object.entries(equipmentPrices).map(([name, price]) => `
-                <div style="display: flex; justify-content: space-between; align-items: center; background: #f5f5f7; padding: 14px 12px; border-radius: 8px; border: 1px solid #e5e5e7;">
-                    <span style="flex: 1; color: #000; font-size: 14px;">${name}</span>
-                    <div style="display: flex; gap: 8px; align-items: center;">
-                        <span style="color: #86868b;">$</span>
-                        <input type="number" value="${price}" onchange="updateEquipmentPrice('${name.replace(/'/g, "\\'")}', this.value)" style="width: 80px; padding: 8px; border: 1px solid #e5e5e7; border-radius: 6px; background: #fff; color: #000; font-size: 14px;">
-                    </div>
-                </div>
+        function showModal(options, type) {
+            const modal = document.getElementById('modal');
+            const title = document.getElementById('modalTitle');
+            const optionsDiv = document.getElementById('modalOptions');
+            
+            title.textContent = type === 'ac' ? 'Select SEER2' : 'Select BTU';
+            optionsDiv.innerHTML = options.map(opt => `
+                <button class="modal-option" onclick="addWithSpec('${opt}', '${type}')">${opt}</button>
             `).join('');
-
-            const laborList = document.getElementById('laborPricingList');
-            laborList.innerHTML = Object.entries(laborRates).map(([name, price]) => `
-                <div style="display: flex; justify-content: space-between; align-items: center; background: #f5f5f7; padding: 14px 12px; border-radius: 8px; border: 1px solid #e5e5e7;">
-                    <span style="flex: 1; color: #000; font-size: 14px;">${name}</span>
-                    <div style="display: flex; gap: 8px; align-items: center;">
-                        <span style="color: #86868b;">$</span>
-                        <input type="number" value="${price}" onchange="updateLaborPrice('${name.replace(/'/g, "\\'")}', this.value)" style="width: 80px; padding: 8px; border: 1px solid #e5e5e7; border-radius: 6px; background: #fff; color: #000; font-size: 14px;">
-                    </div>
-                </div>
-            `).join('');
+            
+            modal.style.display = 'flex';
         }
 
-        function updateEquipmentPrice(name, value) {
-            equipmentPrices[name] = parseFloat(value) || 0;
-            renderEquipmentGrid();
-            updateSummary();
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
         }
 
-        function updateLaborPrice(name, value) {
-            laborRates[name] = parseFloat(value) || 0;
-            renderLaborGrid();
-            updateSummary();
+        function addWithSpec(spec, type) {
+            const fullName = `${currentName} (${spec})`;
+            addItem(currentType, fullName, currentPrice);
+            closeModal();
         }
 
         function addItem(type, name, price) {
-            // Check if this is an AC or furnace unit that needs tonnage selection
-            const acUnits = ['Standard AC Unit (SEER2 13)', 'High-Efficiency AC (SEER2 16+)', 'Rooftop Package Unit (SEER2 13, 80% AFUE)', 'Rooftop Package Unit (SEER2 16+, 92% AFUE)'];
-            const furnaceUnits = ['Basic Furnace (80% AFUE)', 'Mid-Range Furnace (92% AFUE)', 'High-Efficiency Furnace (95% AFUE)', 'Ultra-Low NOx Furnace (SEER2 8+)'];
-            
-            if (acUnits.includes(name) || furnaceUnits.includes(name)) {
-                showTonnageModal(type, name, price);
-            } else {
-                // Non-sized items, add directly
-                estimateItems.push({
-                    id: Date.now(),
-                    type,
-                    name,
-                    price,
-                    qty: 1,
-                    tonnage: null,
-                    seer2: null
-                });
-                renderEstimateItems();
-                updateSummary();
-            }
-        }
-
-        // Store current specs for modal
-        let currentModalSpecs = { type: '', name: '', price: 0 };
-        let currentModalTonnage = null;
-        let currentModalBTU = null;
-
-        function showTonnageModal(type, name, price) {
-            currentModalSpecs = { type, name, price };
-            currentModalTonnage = null;
-            currentModalBTU = null;
-            const tonnageOptions = document.getElementById('tonnageOptions');
-            const tonnages = ['2 Ton', '2.5 Ton', '3 Ton', '3.5 Ton', '4 Ton', '5 Ton'];
-            const isAC = name.includes('AC') || name.includes('Rooftop');
-            const isFurnace = name.includes('Furnace');
-            
-            tonnageOptions.innerHTML = tonnages.map(tonnage => `
-                <button class="item-button" onclick="selectTonnage('${tonnage}')" style="background: #f5f5f7;">
-                    <span>${tonnage}</span>
-                </button>
-            `).join('');
-
-            document.getElementById('tonnageTitle').textContent = `Select ${name} Size`;
-            
-            // Show SEER2 section only for AC units
-            if (isAC) {
-                const seer2Section = document.getElementById('seer2Section');
-                const seer2Options = document.getElementById('seer2Options');
-                const seer2Ratings = ['SEER2 13', 'SEER2 14', 'SEER2 15', 'SEER2 16', 'SEER2 17', 'SEER2 18'];
-                
-                seer2Options.innerHTML = seer2Ratings.map(rating => `
-                    <button class="item-button" onclick="selectSEER2('${rating}')" style="background: #f5f5f7;">
-                        <span>${rating}</span>
-                    </button>
-                `).join('');
-                seer2Section.style.display = 'block';
-            } else {
-                document.getElementById('seer2Section').style.display = 'none';
-            }
-
-            // Show BTU section only for furnace units
-            if (isFurnace) {
-                const btuSection = document.getElementById('btuSection');
-                const btuOptions = document.getElementById('btuOptions');
-                const btuRatings = ['40,000 BTU', '50,000 BTU', '60,000 BTU', '75,000 BTU', '80,000 BTU', '100,000 BTU', '120,000 BTU'];
-                
-                btuOptions.innerHTML = btuRatings.map(btu => `
-                    <button class="item-button" onclick="selectBTU('${btu}')" style="background: #f5f5f7;">
-                        <span>${btu}</span>
-                    </button>
-                `).join('');
-                btuSection.style.display = 'block';
-            } else {
-                document.getElementById('btuSection').style.display = 'none';
-            }
-
-            document.getElementById('tonnageModal').style.display = 'flex';
-        }
-
-        function selectTonnage(tonnage) {
-            currentModalTonnage = tonnage;
-            
-            const isAC = currentModalSpecs.name.includes('AC') || currentModalSpecs.name.includes('Rooftop');
-            const isFurnace = currentModalSpecs.name.includes('Furnace');
-            
-            if (!isAC && !isFurnace) {
-                // For non-AC/furnace units, confirm immediately
-                confirmSpecs(tonnage);
-            }
-            // For AC units, wait for SEER2 selection
-            // For furnace units, wait for BTU selection
-        }
-
-        function selectSEER2(rating) {
-            confirmSpecs(currentModalTonnage, rating);
-        }
-
-        function selectBTU(btu) {
-            confirmSpecs(currentModalTonnage, null, btu);
-        }
-
-        function confirmSpecs(tonnage, seer2 = null, btu = null) {
-            const { type, name, price } = currentModalSpecs;
-            let fullName = `${name} (${tonnage}`;
-            if (seer2) {
-                fullName += `, ${seer2}`;
-            }
-            if (btu) {
-                fullName += `, ${btu}`;
-            }
-            fullName += ')';
-
-            estimateItems.push({
+            items.push({
                 id: Date.now(),
                 type,
-                name: fullName,
+                name,
                 price,
-                qty: 1,
-                tonnage,
-                seer2,
-                btu
+                qty: 1
             });
-            closeTonnageModal();
-            renderEstimateItems();
+            renderItems();
             updateSummary();
         }
 
-        function closeTonnageModal() {
-            document.getElementById('tonnageModal').style.display = 'none';
-        }
-
-        function removeItem(id) {
-            estimateItems = estimateItems.filter(item => item.id !== id);
-            renderEstimateItems();
-            updateSummary();
-        }
-
-        function updateQty(id, qty) {
-            const item = estimateItems.find(i => i.id === id);
-            if (item && qty >= 1) {
-                item.qty = qty;
-                renderEstimateItems();
-                updateSummary();
-            }
-        }
-
-        function renderEstimateItems() {
-            const container = document.getElementById('estimateItems');
-            if (estimateItems.length === 0) {
-                container.innerHTML = '<p class="text-center text-muted">Add equipment or labor items above to build your estimate</p>';
+        function renderItems() {
+            const container = document.getElementById('items');
+            if (items.length === 0) {
+                container.innerHTML = '<p style="color: #86868b; text-align: center;">No items added yet</p>';
                 return;
             }
 
-            container.innerHTML = estimateItems.map(item => `
+            container.innerHTML = items.map(item => `
                 <div class="estimate-item">
-                    <div class="estimate-item-info">
-                        <div class="estimate-item-name">${item.name}</div>
-                        <div class="estimate-item-type">${item.type}</div>
-                        ${item.tonnage ? `<div style="font-size: 12px; color: #1e3a5f; font-weight: 500; margin-top: 4px;">Size: ${item.tonnage}</div>` : ''}
-                        ${item.seer2 ? `<div style="font-size: 12px; color: #1e3a5f; font-weight: 500; margin-top: 2px;">SEER2: ${item.seer2}</div>` : ''}
-                        ${item.btu ? `<div style="font-size: 12px; color: #1e3a5f; font-weight: 500; margin-top: 2px;">Output: ${item.btu}</div>` : ''}
+                    <div class="estimate-info">
+                        <div class="estimate-name">${item.name}</div>
                     </div>
-                    <div style="text-align: center; min-width: 80px;">
-                        <div style="font-size: 12px; color: #86868b; margin-bottom: 6px;">Qty</div>
-                        <div class="qty-control" style="justify-content: center;">
-                            <button onclick="updateQty(${item.id}, ${item.qty - 1})">−</button>
-                            <input type="number" value="${item.qty}" onchange="updateQty(${item.id}, parseInt(this.value) || 1)" min="1">
-                            <button onclick="updateQty(${item.id}, ${item.qty + 1})">+</button>
-                        </div>
+                    <div class="qty-box">
+                        <button onclick="changeQty(${item.id}, -1)">−</button>
+                        <input type="number" value="${item.qty}" onchange="setQty(${item.id}, this.value)" min="1">
+                        <button onclick="changeQty(${item.id}, 1)">+</button>
                     </div>
-                    <div class="estimate-item-price">
-                        <div class="estimate-item-total">$${(item.price * item.qty).toFixed(2)}</div>
-                        <div class="estimate-item-unit">$${item.price}/ea</div>
+                    <div class="estimate-price">
+                        <div class="price-total">$${(item.price * item.qty).toFixed(2)}</div>
                     </div>
-                    <button class="btn-danger" onclick="removeItem(${item.id})">🗑️</button>
+                    <button class="delete-btn" onclick="removeItem(${item.id})">🗑️</button>
                 </div>
             `).join('');
         }
 
-        function updateSummary() {
-            const subtotal = estimateItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            const materials = subtotal * (materialsPercent / 100);
-            const subtotalWithMaterials = subtotal + materials;
-            const tax = subtotalWithMaterials * (taxRate / 100);
-            const total = subtotalWithMaterials + tax;
-
-            document.getElementById('subtotalDisplay').textContent = `$${subtotal.toFixed(2)}`;
-            document.getElementById('materialsDisplay').textContent = `$${materials.toFixed(2)}`;
-            document.getElementById('materialsPercentDisplay').textContent = materialsPercent;
-            document.getElementById('taxDisplay').textContent = `$${tax.toFixed(2)}`;
-            document.getElementById('taxPercentDisplay').textContent = taxRate.toFixed(2);
-            document.getElementById('totalDisplay').textContent = `$${total.toFixed(2)}`;
-
-            const summary = document.getElementById('summary');
-            if (estimateItems.length > 0) {
-                summary.classList.remove('summary-hidden');
-            } else {
-                summary.classList.add('summary-hidden');
+        function changeQty(id, change) {
+            const item = items.find(i => i.id === id);
+            if (item) {
+                item.qty = Math.max(1, item.qty + change);
+                renderItems();
+                updateSummary();
             }
         }
 
-        function generateEstimateText() {
-            const date = new Date().toLocaleDateString();
-            const expirationDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString();
-            const clientName = document.getElementById('clientName').value;
-            const clientEmail = document.getElementById('clientEmail').value;
-            const clientPhone = document.getElementById('clientPhone').value;
-            const jobNotes = document.getElementById('jobNotes').value;
-
-            const subtotal = estimateItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            const materials = subtotal * (materialsPercent / 100);
-            const subtotalWithMaterials = subtotal + materials;
-            const tax = subtotalWithMaterials * (taxRate / 100);
-            const total = subtotalWithMaterials + tax;
-
-            let text = `ACE HEATING & AIR CONDITIONING\n`;
-            text += `HVAC PROJECT ESTIMATE\n`;
-            text += `Date: ${date}\n`;
-            text += `Valid Until: ${expirationDate}\n\n`;
-            
-            if (clientName) text += `Customer: ${clientName}\n`;
-            if (clientPhone) text += `Phone: ${clientPhone}\n`;
-            if (clientEmail) text += `Email: ${clientEmail}\n`;
-            
-            if (jobNotes) {
-                text += `\nNOTES:\n`;
-                text += `${jobNotes}\n`;
+        function setQty(id, qty) {
+            const item = items.find(i => i.id === id);
+            if (item) {
+                item.qty = Math.max(1, parseInt(qty) || 1);
+                renderItems();
+                updateSummary();
             }
+        }
+
+        function removeItem(id) {
+            items = items.filter(i => i.id !== id);
+            renderItems();
+            updateSummary();
+        }
+
+        function updateSummary() {
+            if (items.length === 0) {
+                document.getElementById('summary').classList.add('summary-hidden');
+                return;
+            }
+
+            const subtotal = items.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const markup = parseFloat(document.getElementById('markup').value) || 15;
+            const materials = subtotal * (markup / 100);
+            const taxRate = parseFloat(document.getElementById('tax').value) || 9.25;
+            const taxAmount = (subtotal + materials) * (taxRate / 100);
+            const total = subtotal + materials + taxAmount;
+
+            document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
+            document.getElementById('materials').textContent = '$' + materials.toFixed(2);
+            document.getElementById('taxAmount').textContent = '$' + taxAmount.toFixed(2);
+            document.getElementById('total').textContent = '$' + total.toFixed(2);
+            document.getElementById('summary').classList.remove('summary-hidden');
+        }
+
+        function calcCooling() {
+            const sqft = parseFloat(document.getElementById('sqft').value);
+            if (!sqft || sqft < 100) {
+                alert('Enter square footage');
+                return;
+            }
+            const btu = sqft * 25;
+            showCalcResult(btu, 'SEER2 13-16');
+        }
+
+        function calcHeating() {
+            const sqft = parseFloat(document.getElementById('sqft').value);
+            if (!sqft || sqft < 100) {
+                alert('Enter square footage');
+                return;
+            }
+            const btu = sqft * 45;
+            showCalcResult(btu, '92-95% AFUE');
+        }
+
+        function showCalcResult(btu, rec) {
+            document.getElementById('btuResult').textContent = btu.toLocaleString() + ' BTU';
+            document.getElementById('recResult').textContent = 'Recommended: ' + rec;
+            document.getElementById('calcResult').classList.remove('hidden');
+        }
+
+        function generateText() {
+            const date = new Date().toLocaleDateString();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const notes = document.getElementById('notes').value;
+
+            const subtotal = items.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const markup = parseFloat(document.getElementById('markup').value) || 15;
+            const materials = subtotal * (markup / 100);
+            const taxRate = parseFloat(document.getElementById('tax').value) || 9.25;
+            const taxAmount = (subtotal + materials) * (taxRate / 100);
+            const total = subtotal + materials + taxAmount;
+
+            let text = 'ACE HEATING & AIR CONDITIONING\nHVAC ESTIMATE\n';
+            text += `Date: ${date}\n`;
+            if (name) text += `Customer: ${name}\n`;
+            if (phone) text += `Phone: ${phone}\n`;
+            if (email) text += `Email: ${email}\n`;
+            if (notes) text += `\nNOTES:\n${notes}\n`;
+            text += '\n' + '='.repeat(50) + '\n\n';
             
-            text += `\n${'─'.repeat(50)}\n\n`;
-            
-            text += `ESTIMATE BREAKDOWN\n\n`;
-            estimateItems.forEach(item => {
-                const lineTotal = (item.price * item.qty).toFixed(2);
-                text += `${item.name}\n  Qty: ${item.qty} @ $${item.price.toFixed(2)} = $${lineTotal}\n\n`;
+            items.forEach(item => {
+                text += `${item.name}\n  Qty: ${item.qty} × $${item.price} = $${(item.price * item.qty).toFixed(2)}\n`;
             });
             
-            text += `${'─'.repeat(50)}\n`;
-            text += `Equipment & Labor:        $${subtotal.toFixed(2)}\n`;
-            text += `Materials (${materialsPercent}%):          $${materials.toFixed(2)}\n`;
-            text += `Subtotal:                 $${subtotalWithMaterials.toFixed(2)}\n`;
-            text += `Tax (${taxRate.toFixed(2)}%):                    $${tax.toFixed(2)}\n`;
-            text += `${'─'.repeat(50)}\n`;
-            text += `TOTAL ESTIMATE:           $${total.toFixed(2)}\n`;
-            text += `${'─'.repeat(50)}\n\n`;
-            text += `Valid until ${expirationDate}.\n`;
-            text += `Thank you for choosing ACE Heating & Air Conditioning!\n`;
+            text += '\n' + '='.repeat(50) + '\n';
+            text += `Equipment & Labor: $${subtotal.toFixed(2)}\n`;
+            text += `Materials: $${materials.toFixed(2)}\n`;
+            text += `Tax: $${taxAmount.toFixed(2)}\n`;
+            text += `TOTAL: $${total.toFixed(2)}\n`;
+            text += '='.repeat(50) + '\n\n';
+            text += 'Thank you for choosing ACE!\n';
             
             return text;
         }
 
         function downloadEstimate() {
-            if (estimateItems.length === 0) {
-                alert('Add estimate items first');
-                return;
-            }
-            const text = generateEstimateText();
+            const text = generateText();
             const element = document.createElement('a');
             element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
             element.setAttribute('download', `ACE-Estimate-${Date.now()}.txt`);
-            element.style.display = 'none';
-            document.body.appendChild(element);
             element.click();
-            document.body.removeChild(element);
         }
 
-        function sendEmail() {
-            const clientEmail = document.getElementById('clientEmail').value;
-            if (!clientEmail || estimateItems.length === 0) {
-                alert('Please enter customer email and add estimate items');
+        function emailEstimate() {
+            const email = document.getElementById('email').value;
+            if (!email) {
+                alert('Enter customer email');
                 return;
             }
+            const text = generateText();
             const subject = 'HVAC Estimate - ACE Heating & Air Conditioning';
-            const body = encodeURIComponent(generateEstimateText());
-            window.location.href = `mailto:${clientEmail}?subject=${encodeURIComponent(subject)}&body=${body}`;
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
         }
 
-        // Initialize on load
-        window.addEventListener('DOMContentLoaded', init);
-
-        // Multi-Unit Functions
-        function switchUnit() {
-            const unitNum = document.getElementById('unitNumber').value;
-            
-            // Save current unit data
-            unitsData[currentUnit] = {
-                items: [...estimateItems],
-                clientName: document.getElementById('clientName').value,
-                clientEmail: document.getElementById('clientEmail').value,
-                clientPhone: document.getElementById('clientPhone').value,
-                jobNotes: document.getElementById('jobNotes').value
-            };
-
-            // Load new unit data
-            currentUnit = parseInt(unitNum);
-            const unitData = unitsData[currentUnit];
-            estimateItems = [...unitData.items];
-            
-            document.getElementById('clientName').value = unitData.clientName;
-            document.getElementById('clientEmail').value = unitData.clientEmail;
-            document.getElementById('clientPhone').value = unitData.clientPhone;
-            document.getElementById('jobNotes').value = unitData.jobNotes;
-            
-            renderEstimateItems();
-            updateSummary();
-        }
-
-        // Save/Load Functions
-        function saveEstimate() {
-            // Save current unit
-            unitsData[currentUnit] = {
-                items: [...estimateItems],
-                clientName: document.getElementById('clientName').value,
-                clientEmail: document.getElementById('clientEmail').value,
-                clientPhone: document.getElementById('clientPhone').value,
-                jobNotes: document.getElementById('jobNotes').value
-            };
-
-            const estimateData = {
-                timestamp: new Date().toLocaleString(),
-                units: unitsData,
-                materials: materialsPercent,
-                tax: taxRate
-            };
-
-            localStorage.setItem(`ace_estimate_${Date.now()}`, JSON.stringify(estimateData));
-            alert('✅ Estimate saved! You can load it later.');
-        }
-
-        function loadEstimate() {
-            const keys = Object.keys(localStorage).filter(k => k.startsWith('ace_estimate_'));
-            
-            if (keys.length === 0) {
-                alert('No saved estimates found.');
-                return;
-            }
-
-            let saveList = 'Saved Estimates:\n\n';
-            keys.forEach((key, index) => {
-                const data = JSON.parse(localStorage.getItem(key));
-                saveList += `${index + 1}. ${data.timestamp}\n`;
-            });
-            saveList += '\nEnter the number (1-' + keys.length + ') to load:';
-
-            const choice = prompt(saveList);
-            if (!choice) return;
-
-            const selectedKey = keys[parseInt(choice) - 1];
-            if (!selectedKey) {
-                alert('Invalid selection.');
-                return;
-            }
-
-            const data = JSON.parse(localStorage.getItem(selectedKey));
-            unitsData = data.units;
-            materialsPercent = data.materials;
-            taxRate = data.tax;
-            currentUnit = 1;
-
-            const unitData = unitsData[1];
-            estimateItems = [...unitData.items];
-            document.getElementById('clientName').value = unitData.clientName;
-            document.getElementById('clientEmail').value = unitData.clientEmail;
-            document.getElementById('clientPhone').value = unitData.clientPhone;
-            document.getElementById('jobNotes').value = unitData.jobNotes;
-            document.getElementById('unitNumber').value = '1';
-            document.getElementById('materialsPercent').value = materialsPercent;
-            document.getElementById('taxRate').value = taxRate;
-
-            renderEstimateItems();
-            updateSummary();
-            renderPricingLists();
-            alert('✅ Estimate loaded!');
-        }
-
-
-        // Calculator functions
-        let lastCalculationType = null;
-        let lastCalculatedBTU = null;
-        let lastSelectedTonnage = null;
-        let lastSelectedSEER2 = null;
-
-        function calculateCapacity(type) {
-            const sqft = parseFloat(document.getElementById('sqft').value);
-            
-            if (!sqft || sqft < 100) {
-                alert('Please enter a valid square footage (at least 100 sqft)');
-                return;
-            }
-
-            lastCalculationType = type;
-            let btu, recommendation, seerAfue;
-
-            if (type === 'cooling') {
-                // Porterville cooling: 25 BTU/sqft
-                btu = sqft * 25;
-                lastCalculatedBTU = btu;
-                
-                // Convert to tons (1 ton = 12,000 BTU)
-                const tons = (btu / 12000).toFixed(1);
-                
-                if (btu <= 12000) {
-                    seerAfue = 'SEER2 13';
-                    recommendation = `For ${sqft.toLocaleString()} sqft, you need approximately ${btu.toLocaleString()} BTU (${tons} ton) cooling system. Standard SEER2 13 AC unit recommended.`;
-                } else if (btu <= 24000) {
-                    seerAfue = 'SEER2 13-14';
-                    recommendation = `For ${sqft.toLocaleString()} sqft, you need approximately ${btu.toLocaleString()} BTU (${tons} tons) cooling system. Mid-range SEER2 13-14 AC unit recommended.`;
-                } else {
-                    seerAfue = 'SEER2 16+';
-                    recommendation = `For ${sqft.toLocaleString()} sqft, you need approximately ${btu.toLocaleString()} BTU (${tons} tons) cooling system. High-efficiency SEER2 16+ AC unit recommended for better energy savings.`;
-                }
-            } else if (type === 'heating') {
-                // Porterville heating: 45 BTU/sqft
-                btu = sqft * 45;
-                lastCalculatedBTU = btu;
-                
-                if (btu <= 40000) {
-                    seerAfue = '92% AFUE';
-                    recommendation = `For ${sqft.toLocaleString()} sqft, you need approximately ${btu.toLocaleString()} BTU heating capacity. Mid-range furnace (92% AFUE) recommended.`;
-                } else if (btu <= 60000) {
-                    seerAfue = '95% AFUE';
-                    recommendation = `For ${sqft.toLocaleString()} sqft, you need approximately ${btu.toLocaleString()} BTU heating capacity. High-efficiency furnace (95% AFUE) recommended.`;
-                } else {
-                    seerAfue = 'Ultra-Low NOx (SEER2 8+)';
-                    recommendation = `For ${sqft.toLocaleString()} sqft, you need approximately ${btu.toLocaleString()} BTU heating capacity. Ultra-Low NOx furnace recommended for maximum efficiency and environmental compliance.`;
-                }
-            }
-
-            // Display results
-            document.getElementById('btuResult').textContent = btu.toLocaleString() + ' BTU';
-            document.getElementById('seerResult').textContent = seerAfue;
-            document.getElementById('recommendationText').textContent = recommendation;
-            document.getElementById('calculator-results').classList.remove('hidden-tab');
-            document.getElementById('calculator-results').classList.add('visible-tab');
-        }
-
-        function addCalculatedUnit() {
-            if (!lastCalculatedBTU) {
-                alert('Please calculate capacity first');
-                return;
-            }
-
-            let unitName = '';
-            let price = 0;
-
-            if (lastCalculationType === 'cooling') {
-                if (lastCalculatedBTU <= 12000) {
-                    unitName = 'Standard AC Unit (SEER2 13)';
-                    price = equipmentPrices['Standard AC Unit (SEER2 13)'];
-                } else {
-                    unitName = 'High-Efficiency AC (SEER2 16+)';
-                    price = equipmentPrices['High-Efficiency AC (SEER2 16+)'];
-                }
-            } else if (lastCalculationType === 'heating') {
-                if (lastCalculatedBTU <= 40000) {
-                    unitName = 'Mid-Range Furnace (92% AFUE)';
-                    price = equipmentPrices['Mid-Range Furnace (92% AFUE)'];
-                } else if (lastCalculatedBTU <= 60000) {
-                    unitName = 'High-Efficiency Furnace (95% AFUE)';
-                    price = equipmentPrices['High-Efficiency Furnace (95% AFUE)'];
-                } else {
-                    unitName = 'Ultra-Low NOx Furnace (SEER2 8+)';
-                    price = equipmentPrices['Ultra-Low NOx Furnace (SEER2 8+)'];
-                }
-            }
-
-            // Add to estimate
-            addItem('equipment', unitName, price);
-            
-            // Switch to estimate tab
-            switchTab('estimate');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-            
-            alert(`Added "${unitName}" to your estimate!`);
-        }
+        // Initialize
+        renderItems();
+        updateSummary();
+    </script>
 </body>
 </html>
