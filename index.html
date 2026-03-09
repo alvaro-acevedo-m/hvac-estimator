@@ -582,6 +582,7 @@
             <button class="tab-btn active" onclick="goTab('estimate')">🏠 Estimate</button>
             <button class="tab-btn" onclick="goTab('calculator')">📐 Calculator</button>
             <button class="tab-btn" onclick="goTab('pricing')">⚙️ Pricing</button>
+            <button class="tab-btn" onclick="showImportModal()">📥 Import</button>
         </div>
     </header>
 
@@ -605,9 +606,25 @@
                     <button class="item-btn" onclick="pickAC('Rheem Condenser', 3600)"><span>Rheem</span><span>$3,600</span></button>
                     <button class="item-btn" onclick="pickAC('Coleman Condenser', 3300)"><span>Coleman</span><span>$3,300</span></button>
                 </div>
-                <h3>Evaporative Coil</h3>
+                <h3>Heat Pumps</h3>
                 <div class="grid">
-                    <button class="item-btn" onclick="addItem('coil', 'Evaporative Coil', 900)"><span>Coil</span><span>$900</span></button>
+                    <button class="item-btn" onclick="pickAC('Goodman Heat Pump', 3500)"><span>Goodman</span><span>$3,500</span></button>
+                    <button class="item-btn" onclick="pickAC('RUUD Heat Pump', 3700)"><span>RUUD</span><span>$3,700</span></button>
+                    <button class="item-btn" onclick="pickAC('Rheem Heat Pump', 3900)"><span>Rheem</span><span>$3,900</span></button>
+                    <button class="item-btn" onclick="pickAC('Coleman Heat Pump', 3600)"><span>Coleman</span><span>$3,600</span></button>
+                </div>
+                <h3>Heat Pump Accessories (Split System)</h3>
+                <div class="grid">
+                    <button class="item-btn" onclick="addItem('heatstrips', 'Heat Strips (5KW)', 400)"><span>Heat Strips</span><span>$400</span></button>
+                    <button class="item-btn" onclick="addItem('airhandler', 'Air Handler', 800)"><span>Air Handler</span><span>$800</span></button>
+                    <button class="item-btn" onclick="addItem('coil', 'Evaporator Coil', 650)"><span>Evap Coil</span><span>$650</span></button>
+                </div>
+                <h3>Rooftop Heat Pumps</h3>
+                <div class="grid">
+                    <button class="item-btn" onclick="pickAC('Goodman Rooftop Heat Pump', 5500)"><span>Goodman</span><span>$5,500</span></button>
+                    <button class="item-btn" onclick="pickAC('RUUD Rooftop Heat Pump', 5800)"><span>RUUD</span><span>$5,800</span></button>
+                    <button class="item-btn" onclick="pickAC('Rheem Rooftop Heat Pump', 6100)"><span>Rheem</span><span>$6,100</span></button>
+                    <button class="item-btn" onclick="pickAC('Coleman Rooftop Heat Pump', 5600)"><span>Coleman</span><span>$5,600</span></button>
                 </div>
                 <h3>Rooftop Packaged Units</h3>
                 <div class="grid">
@@ -730,16 +747,16 @@
         <!-- PRICING TAB -->
         <div id="pricing" class="tab-content hidden">
             <div class="section">
-                <h2>Condenser Unit Pricing</h2>
+                <h2>Heat Pump Pricing</h2>
                 <div class="dropdown" onclick="toggleDropdown(this)">
                     <div class="dropdown-header">
                         <span>2 Ton</span>
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>SEER2 13: $<input type="number" id="ac_2_13" value="2800"></label></div>
-                        <div class="price-row"><label>SEER2 15: $<input type="number" id="ac_2_15" value="3200"></label></div>
-                        <div class="price-row"><label>SEER2 18: $<input type="number" id="ac_2_18" value="4000"></label></div>
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="hp_2_13" value="2400"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="hp_2_15" value="2800"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="hp_2_18" value="3600"></label></div>
                     </div>
                 </div>
                 <div class="dropdown" onclick="toggleDropdown(this)">
@@ -748,9 +765,9 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>SEER2 13: $<input type="number" id="ac_3_13" value="3200"></label></div>
-                        <div class="price-row"><label>SEER2 15: $<input type="number" id="ac_3_15" value="3800"></label></div>
-                        <div class="price-row"><label>SEER2 18: $<input type="number" id="ac_3_18" value="4800"></label></div>
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="hp_3_13" value="2700"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="hp_3_15" value="3200"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="hp_3_18" value="4200"></label></div>
                     </div>
                 </div>
                 <div class="dropdown" onclick="toggleDropdown(this)">
@@ -759,9 +776,9 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>SEER2 13: $<input type="number" id="ac_35_13" value="3600"></label></div>
-                        <div class="price-row"><label>SEER2 15: $<input type="number" id="ac_35_15" value="4200"></label></div>
-                        <div class="price-row"><label>SEER2 18: $<input type="number" id="ac_35_18" value="5400"></label></div>
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="hp_35_13" value="2900"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="hp_35_15" value="3500"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="hp_35_18" value="4500"></label></div>
                     </div>
                 </div>
                 <div class="dropdown" onclick="toggleDropdown(this)">
@@ -770,9 +787,9 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>SEER2 13: $<input type="number" id="ac_4_13" value="4000"></label></div>
-                        <div class="price-row"><label>SEER2 15: $<input type="number" id="ac_4_15" value="4700"></label></div>
-                        <div class="price-row"><label>SEER2 18: $<input type="number" id="ac_4_18" value="6000"></label></div>
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="hp_4_13" value="3200"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="hp_4_15" value="3800"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="hp_4_18" value="5000"></label></div>
                     </div>
                 </div>
                 <div class="dropdown" onclick="toggleDropdown(this)">
@@ -781,9 +798,127 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>SEER2 13: $<input type="number" id="ac_5_13" value="4800"></label></div>
-                        <div class="price-row"><label>SEER2 15: $<input type="number" id="ac_5_15" value="5500"></label></div>
-                        <div class="price-row"><label>SEER2 18: $<input type="number" id="ac_5_18" value="7000"></label></div>
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="hp_5_13" value="3800"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="hp_5_15" value="4500"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="hp_5_18" value="5900"></label></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Condenser Unit Pricing</h2>
+                <div class="dropdown" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">
+                        <span>2 Ton</span>
+                        <span class="dropdown-toggle">▼</span>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="ac_2_13" value="2100"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="ac_2_15" value="2400"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="ac_2_18" value="3200"></label></div>
+                    </div>
+                </div>
+                <div class="dropdown" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">
+                        <span>3 Ton</span>
+                        <span class="dropdown-toggle">▼</span>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="ac_3_13" value="2300"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="ac_3_15" value="2700"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="ac_3_18" value="3600"></label></div>
+                    </div>
+                </div>
+                <div class="dropdown" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">
+                        <span>3.5 Ton</span>
+                        <span class="dropdown-toggle">▼</span>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="ac_35_13" value="2500"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="ac_35_15" value="2900"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="ac_35_18" value="3900"></label></div>
+                    </div>
+                </div>
+                <div class="dropdown" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">
+                        <span>4 Ton</span>
+                        <span class="dropdown-toggle">▼</span>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="ac_4_13" value="2700"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="ac_4_15" value="3200"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="ac_4_18" value="4300"></label></div>
+                    </div>
+                </div>
+                <div class="dropdown" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">
+                        <span>5 Ton</span>
+                        <span class="dropdown-toggle">▼</span>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="ac_5_13" value="3200"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="ac_5_15" value="3800"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="ac_5_18" value="5100"></label></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Rooftop Heat Pump Pricing</h2>
+                <div class="dropdown" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">
+                        <span>2 Ton</span>
+                        <span class="dropdown-toggle">▼</span>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rthp_2_13" value="4500"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rthp_2_15" value="5000"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rthp_2_18" value="6200"></label></div>
+                    </div>
+                </div>
+                <div class="dropdown" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">
+                        <span>3 Ton</span>
+                        <span class="dropdown-toggle">▼</span>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rthp_3_13" value="5000"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rthp_3_15" value="5600"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rthp_3_18" value="7000"></label></div>
+                    </div>
+                </div>
+                <div class="dropdown" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">
+                        <span>3.5 Ton</span>
+                        <span class="dropdown-toggle">▼</span>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rthp_35_13" value="5400"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rthp_35_15" value="6000"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rthp_35_18" value="7500"></label></div>
+                    </div>
+                </div>
+                <div class="dropdown" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">
+                        <span>4 Ton</span>
+                        <span class="dropdown-toggle">▼</span>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rthp_4_13" value="5900"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rthp_4_15" value="6600"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rthp_4_18" value="8200"></label></div>
+                    </div>
+                </div>
+                <div class="dropdown" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">
+                        <span>5 Ton</span>
+                        <span class="dropdown-toggle">▼</span>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rthp_5_13" value="6500"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rthp_5_15" value="7300"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rthp_5_18" value="9100"></label></div>
                     </div>
                 </div>
             </div>
@@ -796,9 +931,9 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rtu_2_13" value="6000"></label></div>
-                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rtu_2_15" value="6500"></label></div>
-                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rtu_2_18" value="7500"></label></div>
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rtu_2_13" value="3800"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rtu_2_15" value="4200"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rtu_2_18" value="5200"></label></div>
                     </div>
                 </div>
                 <div class="dropdown" onclick="toggleDropdown(this)">
@@ -807,9 +942,9 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rtu_3_13" value="6500"></label></div>
-                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rtu_3_15" value="7000"></label></div>
-                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rtu_3_18" value="8200"></label></div>
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rtu_3_13" value="4200"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rtu_3_15" value="4700"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rtu_3_18" value="5900"></label></div>
                     </div>
                 </div>
                 <div class="dropdown" onclick="toggleDropdown(this)">
@@ -818,9 +953,9 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rtu_35_13" value="6800"></label></div>
-                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rtu_35_15" value="7400"></label></div>
-                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rtu_35_18" value="8600"></label></div>
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rtu_35_13" value="4600"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rtu_35_15" value="5100"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rtu_35_18" value="6400"></label></div>
                     </div>
                 </div>
                 <div class="dropdown" onclick="toggleDropdown(this)">
@@ -829,9 +964,9 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rtu_4_13" value="7200"></label></div>
-                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rtu_4_15" value="7800"></label></div>
-                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rtu_4_18" value="9000"></label></div>
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rtu_4_13" value="5000"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rtu_4_15" value="5600"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rtu_4_18" value="7000"></label></div>
                     </div>
                 </div>
                 <div class="dropdown" onclick="toggleDropdown(this)">
@@ -840,9 +975,9 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rtu_5_13" value="7800"></label></div>
-                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rtu_5_15" value="8500"></label></div>
-                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rtu_5_18" value="9800"></label></div>
+                        <div class="price-row"><label>SEER2 13: $<input type="number" id="rtu_5_13" value="5600"></label></div>
+                        <div class="price-row"><label>SEER2 15: $<input type="number" id="rtu_5_15" value="6300"></label></div>
+                        <div class="price-row"><label>SEER2 18: $<input type="number" id="rtu_5_18" value="7900"></label></div>
                     </div>
                 </div>
             </div>
@@ -855,7 +990,7 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>2 Ton: $<input type="number" id="furn_40_2" value="3200"></label></div>
+                        <div class="price-row"><label>2 Ton: $<input type="number" id="furn_40_2" value="1800"></label></div>
                     </div>
                 </div>
                 <div class="dropdown" onclick="toggleDropdown(this)">
@@ -864,7 +999,7 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>3 Ton: $<input type="number" id="furn_50_3" value="3800"></label></div>
+                        <div class="price-row"><label>3 Ton: $<input type="number" id="furn_50_3" value="2100"></label></div>
                     </div>
                 </div>
                 <div class="dropdown" onclick="toggleDropdown(this)">
@@ -873,25 +1008,27 @@
                         <span class="dropdown-toggle">▼</span>
                     </div>
                     <div class="dropdown-content">
-                        <div class="price-row"><label>3 Ton: $<input type="number" id="furn_100_3" value="5200"></label></div>
-                        <div class="price-row"><label>4 Ton: $<input type="number" id="furn_100_4" value="6000"></label></div>
-                        <div class="price-row"><label>5 Ton: $<input type="number" id="furn_100_5" value="6600"></label></div>
+                        <div class="price-row"><label>3 Ton: $<input type="number" id="furn_100_3" value="2400"></label></div>
+                        <div class="price-row"><label>4 Ton: $<input type="number" id="furn_100_4" value="2600"></label></div>
+                        <div class="price-row"><label>5 Ton: $<input type="number" id="furn_100_5" value="2800"></label></div>
                     </div>
                 </div>
             </div>
 
             <div class="section">
                 <h2>Additional Pricing</h2>
-                <div class="price-row"><label>Evaporative Coil: $<input type="number" id="coilprice" value="900"></label></div>
-                <div class="price-row"><label>Ductwork Mods: $<input type="number" id="ductwork" value="1500"></label></div>
-                <div class="price-row"><label>Sheet Metal: $<input type="number" id="sheetmetal" value="800"></label></div>
-                <div class="price-row"><label>Duct Test: $<input type="number" id="ducttest" value="300"></label></div>
-                <div class="price-row"><label>City Permit: $<input type="number" id="citypermit" value="250"></label></div>
-                <div class="price-row"><label>Electrical: $<input type="number" id="electrical" value="600"></label></div>
-                <div class="price-row"><label>Breaker: $<input type="number" id="circuitbreaker" value="200"></label></div>
-                <div class="price-row"><label>Thermostat: $<input type="number" id="thermostat" value="300"></label></div>
-                <div class="price-row"><label>AC Install: $<input type="number" id="laborAC" value="1200"></label></div>
-                <div class="price-row"><label>Furnace Install: $<input type="number" id="laborFurnace" value="1500"></label></div>
+                <div class="price-row"><label>Heat Strips (5KW): $<input type="number" id="heatstripsprice" value="400"></label></div>
+                <div class="price-row"><label>Air Handler: $<input type="number" id="airhandlerprice" value="800"></label></div>
+                <div class="price-row"><label>Evaporator Coil: $<input type="number" id="coilprice" value="650"></label></div>
+                <div class="price-row"><label>Ductwork Mods: $<input type="number" id="ductwork" value="1200"></label></div>
+                <div class="price-row"><label>Sheet Metal: $<input type="number" id="sheetmetal" value="650"></label></div>
+                <div class="price-row"><label>Duct Test: $<input type="number" id="ducttest" value="200"></label></div>
+                <div class="price-row"><label>City Permit: $<input type="number" id="citypermit" value="150"></label></div>
+                <div class="price-row"><label>Electrical: $<input type="number" id="electrical" value="400"></label></div>
+                <div class="price-row"><label>Breaker: $<input type="number" id="circuitbreaker" value="120"></label></div>
+                <div class="price-row"><label>Thermostat: $<input type="number" id="thermostat" value="180"></label></div>
+                <div class="price-row"><label>AC Install Labor: $<input type="number" id="laborAC" value="800"></label></div>
+                <div class="price-row"><label>Furnace Install Labor: $<input type="number" id="laborFurnace" value="1000"></label></div>
                 <div class="price-row"><label>Materials Markup: <input type="number" id="markup" value="15">%</label></div>
                 <div class="price-row"><label>Tax Rate: <input type="number" id="tax" value="9.25">%</label></div>
             </div>
@@ -976,6 +1113,41 @@
         </div>
     </div>
 
+    <!-- Import Modal -->
+    <div id="importModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">Import Pricing</div>
+            <label style="font-size: 12px; font-weight: 600; margin-bottom: 8px; display: block;">Upload Excel or CSV File</label>
+            <input type="file" id="importFile" accept=".xlsx,.xls,.csv" style="margin-bottom: 12px;">
+            <label style="font-size: 12px; font-weight: 600; margin-bottom: 8px; display: block;">Map Columns</label>
+            <select id="productColumn" style="margin-bottom: 8px;">
+                <option value="">Select Product Column</option>
+            </select>
+            <select id="priceColumn" style="margin-bottom: 12px;">
+                <option value="">Select Price Column</option>
+            </select>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <button class="btn-secondary" onclick="closeImportModal()">Cancel</button>
+                <button class="btn-primary" onclick="processImport()">Import</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Item Description Modal -->
+    <div id="editItemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">Edit Item</div>
+            <label style="font-size: 12px; font-weight: 600; margin-bottom: 8px; display: block;">Description</label>
+            <textarea id="editItemName" placeholder="Enter item description..." style="height: 80px; margin-bottom: 12px;"></textarea>
+            <label style="font-size: 12px; font-weight: 600; margin-bottom: 8px; display: block;">Price per Unit ($)</label>
+            <input type="number" id="editItemPrice" placeholder="0.00" step="0.01" style="margin-bottom: 12px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <button class="btn-secondary" onclick="closeEditItemModal()">Cancel</button>
+                <button class="btn-primary" onclick="saveItemDescription()">Save</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>ACE Heating & Air Conditioning | Porterville, CA</p>
     </footer>
@@ -1034,8 +1206,17 @@
             if (type === 'ac') {
                 const tonNum = tonnage.replace(' Ton', '').replace('.', '_');
                 const seerNum = spec.replace('SEER2 ', '');
-                const isRTU = currentName.includes('RTU');
-                const pricePrefix = isRTU ? 'rtu_' : 'ac_';
+                const isRooftopHeatPump = currentName.includes('Rooftop Heat Pump');
+                const isRTU = currentName.includes('RTU') && !isRooftopHeatPump;
+                const isHeatPump = currentName.includes('Heat Pump') && !isRooftopHeatPump;
+                let pricePrefix = 'ac_';
+                if (isRooftopHeatPump) {
+                    pricePrefix = 'rthp_';
+                } else if (isRTU) {
+                    pricePrefix = 'rtu_';
+                } else if (isHeatPump) {
+                    pricePrefix = 'hp_';
+                }
                 const priceFieldId = `${pricePrefix}${tonNum}_${seerNum}`;
                 const priceField = document.getElementById(priceFieldId);
                 if (priceField) {
@@ -1058,10 +1239,97 @@
             document.getElementById('ductworkModal').style.display = 'flex';
         }
 
-        function closeDuctworkModal() {
-            document.getElementById('ductworkModal').style.display = 'none';
-            document.querySelectorAll('#ductworkModal input[type="checkbox"]').forEach(cb => cb.checked = false);
-            document.getElementById('ductworkNotes').value = '';
+        function closeImportModal() {
+            document.getElementById('importModal').style.display = 'none';
+        }
+
+        function showImportModal() {
+            document.getElementById('importModal').style.display = 'flex';
+        }
+
+        function processImport() {
+            const fileInput = document.getElementById('importFile');
+            const productCol = document.getElementById('productColumn').value;
+            const priceCol = document.getElementById('priceColumn').value;
+
+            if (!fileInput.files.length) {
+                alert('Please select a file');
+                return;
+            }
+
+            if (!productCol || !priceCol) {
+                alert('Please select product and price columns');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                try {
+                    let data = [];
+                    const content = e.target.result;
+
+                    if (file.name.endsWith('.csv')) {
+                        // Parse CSV
+                        const lines = content.split('\n');
+                        const headers = lines[0].split(',').map(h => h.trim());
+                        const productIdx = parseInt(productCol);
+                        const priceIdx = parseInt(priceCol);
+
+                        for (let i = 1; i < lines.length; i++) {
+                            if (lines[i].trim()) {
+                                const cols = lines[i].split(',');
+                                if (cols[productIdx] && cols[priceIdx]) {
+                                    data.push({
+                                        product: cols[productIdx].trim(),
+                                        price: parseFloat(cols[priceIdx].trim())
+                                    });
+                                }
+                            }
+                        }
+                    } else {
+                        // Excel - use a simple approach (assumes JSON from sheet2json or similar)
+                        alert('For Excel files, please convert to CSV first or contact support');
+                        return;
+                    }
+
+                    if (data.length === 0) {
+                        alert('No data found in file');
+                        return;
+                    }
+
+                    // Try to match products and update prices
+                    let updated = 0;
+                    data.forEach(item => {
+                        const name = item.product.toLowerCase();
+                        const price = item.price;
+
+                        // Try to match keywords and update relevant pricing fields
+                        if (name.includes('coil')) {
+                            document.getElementById('coilprice').value = price;
+                            updated++;
+                        }
+                        if (name.includes('ductwork') || name.includes('duct')) {
+                            document.getElementById('ductwork').value = price;
+                            updated++;
+                        }
+                        if (name.includes('sheet metal')) {
+                            document.getElementById('sheetmetal').value = price;
+                            updated++;
+                        }
+                    });
+
+                    alert(`✓ Imported! Updated ${updated} prices. Review the Pricing tab to verify.`);
+                    closeImportModal();
+                    goTab('pricing');
+
+                } catch (error) {
+                    alert('Error processing file: ' + error.message);
+                }
+            };
+
+            reader.readAsText(file);
         }
 
         function addDuctworkWithDetails() {
@@ -1092,6 +1360,12 @@
             if (type === 'coil') {
                 const coilField = document.getElementById('coilprice');
                 if (coilField) finalPrice = parseFloat(coilField.value) || price;
+            } else if (type === 'heatstrips') {
+                const heatstripsField = document.getElementById('heatstripsprice');
+                if (heatstripsField) finalPrice = parseFloat(heatstripsField.value) || price;
+            } else if (type === 'airhandler') {
+                const airhandlerField = document.getElementById('airhandlerprice');
+                if (airhandlerField) finalPrice = parseFloat(airhandlerField.value) || price;
             } else if (type === 'ductwork') {
                 const ductworkField = document.getElementById('ductwork');
                 if (ductworkField) finalPrice = parseFloat(ductworkField.value) || price;
@@ -1152,6 +1426,7 @@
                     <div class="estimate-price">
                         <div class="price-total">$${(item.price * item.qty).toFixed(2)}</div>
                     </div>
+                    <button style="background: none; border: none; color: var(--rust); padding: 8px; font-size: 16px; cursor: pointer;" onclick="editItemDescription(${item.id})">✏️</button>
                     <button class="delete-btn" onclick="removeItem(${item.id})">🗑️</button>
                 </div>
             `).join('');
@@ -1179,6 +1454,40 @@
             items = items.filter(i => i.id !== id);
             renderItems();
             updateSummary();
+        }
+
+        let editingItemId = null;
+
+        function editItemDescription(id) {
+            editingItemId = id;
+            const item = items.find(i => i.id === id);
+            if (item) {
+                document.getElementById('editItemName').value = item.name;
+                document.getElementById('editItemPrice').value = item.price.toFixed(2);
+                document.getElementById('editItemModal').style.display = 'flex';
+            }
+        }
+
+        function closeEditItemModal() {
+            document.getElementById('editItemModal').style.display = 'none';
+            editingItemId = null;
+        }
+
+        function saveItemDescription() {
+            if (editingItemId) {
+                const item = items.find(i => i.id === editingItemId);
+                if (item) {
+                    const newName = document.getElementById('editItemName').value;
+                    const newPrice = parseFloat(document.getElementById('editItemPrice').value);
+                    
+                    if (newName) item.name = newName;
+                    if (!isNaN(newPrice) && newPrice > 0) item.price = newPrice;
+                    
+                    renderItems();
+                    updateSummary();
+                    closeEditItemModal();
+                }
+            }
         }
 
         function updateSummary() {
